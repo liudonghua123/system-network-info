@@ -19,7 +19,7 @@ before_deploy:
 - git config --local user.email "liudonghua123@gmail.com"
 
 script:
-- npm run build
+- CI=false npm run build
 - npm run make
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tree out/make; fi
 - shx ls -la out/make
