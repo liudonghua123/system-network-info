@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import ynuQR from '../ynu.png';
+import logo from '../logo.svg';
 
 const styles = theme => ({
   footer: {
@@ -28,6 +30,7 @@ class Footer extends Component {
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
           云南大学运维服务部
         </Typography>
+        <img src={ require('../ynu.png') } alt="" />
       </footer>
     );
   }
