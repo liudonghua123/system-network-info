@@ -2,16 +2,39 @@
   "name": "system-network-info",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "description": "a small app build on electron",
+  "author": {
+    "name": "liudonghua",
+    "email": "liudonghua123@gmail.com",
+    "url": "http://liudonghua.com"
+  },
   "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "@material-ui/icons": "^3.0.1",
+    "electron-is-dev": "^1.0.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "material-design-icons": "^3.0.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "typeface-roboto": "0.0.54"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-start": "node src/electron-wait-react",
+    "react-start": "react-scripts start",
+    "pack": "build --dir",
+    "dist": "npm run build && build",
+    "postinstall": "install-app-deps"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +44,22 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "electron": "^3.0.6",
+    "electron-builder": "^20.29.0"
+  },
+  "build": {
+    "appId": "com.liudonghua.system-network-info",
+    "productName": "system-network-info",
+    "directories": {
+      "buildResources": "build"
+    },
+    "electronDownload": {
+      "version": "3.0.6",
+      "arch": "ia32",
+      "platform": "win32",
+      "cache": "./zips"
+    }
+  }
 }
