@@ -13,7 +13,7 @@ module.exports = {
     },
     osxSign: {
       identity: 'Developer ID Application: Donghua Liu (TODO)'
-    },
+    }
   },
   makers: [
     {

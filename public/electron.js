@@ -6,7 +6,12 @@ const { app, BrowserWindow } = require('electron');
 
 const path = require('path');
 // const url = require('url');
-const isDev = require('electron-is-dev');
+
+// const isDev = require('electron-is-dev');
+const isEnvSet = 'ELECTRON_IS_DEV' in process.env;
+const getFromEnv = parseInt(process.env.ELECTRON_IS_DEV, 10) === 1;
+const isDev = isEnvSet ? getFromEnv : !app.isPackaged;
+
 const { networkInterfaces, getNetworkInterfaces } = require('os');
 
 exports.networkInterfaces = networkInterfaces;
