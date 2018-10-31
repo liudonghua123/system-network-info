@@ -32,7 +32,7 @@
     "electron-start": "node src/electron-wait-react",
     "react-start": "react-scripts start",
     "pack": "electron-builder --dir",
-    "dist": "npm run build && cross-env NODE_ENV=production electron-builder",
+    "dist": "npm run build && cross-env NODE_ENV=production node_modules/.bin/electron-builder",
     "postinstall": "install-app-deps",
     "package": "electron-forge package",
     "make": "electron-forge make --arch=ia32,x64",
@@ -70,7 +70,15 @@
       "build/**/*"
     ],
     "win": {
+      "artifactName": "${name}-${version}-${platform}-${arch}.${ext}",
       "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
         {
           "target": "zip",
           "arch": [
@@ -81,6 +89,7 @@
       ]
     },
     "linux": {
+      "artifactName": "${name}-${version}-${platform}-${arch}.${ext}",
       "target": [
         {
           "target": "zip",
@@ -92,6 +101,7 @@
       ]
     },
     "mac": {
+      "artifactName": "${name}-${version}-${platform}-${arch}.${ext}",
       "target": [
         {
           "target": "zip",
