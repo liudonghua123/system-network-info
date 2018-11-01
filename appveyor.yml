@@ -16,7 +16,6 @@ build_script:
 test: off
 
 deploy:
-  release: system-network-info-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:
@@ -25,4 +24,5 @@ deploy:
   draft: false
   prerelease: false
   on:
+    branch: master                 # release from master branch only
     appveyor_repo_tag: true        # deploy on tag push only
