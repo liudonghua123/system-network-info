@@ -1,4 +1,6 @@
 language: node_js
+# Only build tags
+if: tag IS present
 os:
 - windows
 - linux
