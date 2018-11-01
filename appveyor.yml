@@ -1,0 +1,28 @@
+platform:
+  - x64
+
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
+
+install:
+  - ps: Install-Product node 10 x64
+  - npm i
+
+build_script:
+  - set CI=false && npm run dist
+
+test: off
+
+deploy:
+  release: system-network-info-v$(appveyor_build_version)
+  description: 'Release description'
+  provider: GitHub
+  auth_token:
+    secure: 1atOy6zWOIa9O5TpXF2pC9p/WNtuA8J6+54WO4rLYPagz4w9antRz8mHxXCHWhOy
+  artifact: dist/system-network-info-0.1.0-win32-ia32.zip,dist/system-network-info-0.1.0-win32-x64.zip,dist/system-network-info-0.1.0-win32.exe
+  draft: false
+  prerelease: false
+  on:
+    appveyor_repo_tag: true        # deploy on tag push only
