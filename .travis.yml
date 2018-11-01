@@ -29,6 +29,7 @@ deploy:
   - dist/system-network-info-0.1.0-win32.exe
   - dist/system-network-info-0.1.0-linux-ia32.zip
   - dist/system-network-info-0.1.0-linux-x64.zip
+  - dist/system-network-info-0.1.0-darwin.zip
   skip_cleanup: true
   on:
     tags: true
